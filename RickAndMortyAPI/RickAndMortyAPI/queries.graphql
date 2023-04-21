@@ -1,0 +1,28 @@
+query GetCharacters($page: Int) {
+    characters(page: $page) {
+        info {
+            pages, count
+        }
+        results {
+            id, name, image, status, species, type, gender
+            location {
+                id, name
+            }
+            origin {
+                id, name
+            }
+        }
+    }
+}
+  
+query GetCharacter($id: ID!){
+    character(id: $id) {
+        id, name, image, status, species, type, gender
+            location {
+                id, name
+            }
+            origin {
+                id, name
+            }
+    }
+}
