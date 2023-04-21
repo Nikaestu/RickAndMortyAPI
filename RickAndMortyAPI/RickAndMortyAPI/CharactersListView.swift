@@ -51,7 +51,11 @@ struct CharactersListView: View {
                                 if(character.species == "Human") {
                                     Text(character.name.uppercased())
                                 } else {
-                                    Text(character.name)
+                                    //Règle métier 2 : les personnages doivent avoir leur nom affiché en majuscules
+                                    let firstName = character.name.components(separatedBy: " ").first!.lowercased()
+                                    let lastName = character.name.components(separatedBy: " ").dropFirst().joined(separator: " ").uppercased()
+                                    let customName = firstName + " " + lastName
+                                    Text(customName)
                                 }
                             }
                         }
