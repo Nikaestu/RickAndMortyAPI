@@ -28,7 +28,6 @@ class CharacterService: ObservableObject {
         }
 
     func fetchCharacters(){
-        let fetchedPage = currentPage
         Network.shared.apollo.fetch(query: GetCharactersQuery(page: GraphQLNullable<Int>(integerLiteral: currentPage))) {
             result in
             switch result {
@@ -36,7 +35,8 @@ class CharacterService: ObservableObject {
                 print(error)
             case.success(let GraphQLResult):
                 self.totalPage = GraphQLResult.data?.characters?.info?.pages
-                if let charactersData = GraphQLResult.data?.characters?.results?.compactMap({ characterData in
+                //Règle métier 1 : les personnages au statut inconnu doivent être enlevés de la liste de résultat
+                if let charactersData = GraphQLResult.data?.characters?.results?.filter({ $0?.status != "unknown" }).compactMap({ characterData in
                     Character(id: (characterData?.id)!, name: (characterData?.name)!, image: (characterData?.image)!, status: (characterData?.status)!, species: (characterData?.species)!, type: (characterData?.type)!, gender: (characterData?.gender)!)}) {
                     self.characters.append(contentsOf: charactersData)
                 }

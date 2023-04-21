@@ -21,6 +21,7 @@ struct CharactersListView: View {
                         destination: CharacterDetailView(character: character),
                         label: {
                             HStack {
+                                //Règle métier 4 : En mode "Gratuite", l'application affiche l'initiale du prénom du personnage à la place de son image
                                 if (isPrenium) {
                                     if let image = character.image,
                                        let url = URL(string: image) {

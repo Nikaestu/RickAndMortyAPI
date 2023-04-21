@@ -25,6 +25,7 @@ struct CharacterDetailView: View {
                         .font(.largeTitle)
                         .fontWeight(.heavy)
                     Spacer()
+                    //Règle métier 4 : En mode "Gratuite", l'application affiche l'initiale du prénom du personnage à la place de son image
                     if(isPrenium) {
                         let image = character.image
                         let url = URL(string: image)
