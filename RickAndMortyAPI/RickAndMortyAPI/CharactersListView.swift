@@ -10,45 +10,50 @@ import Kingfisher
 
 struct CharactersListView: View {
     
-    @State private var characters: [Character] = []
+    @StateObject private var data = CharacterService()
     @AppStorage("isPrenium") var isPrenium: Bool = false
 
     var body: some View {
         NavigationView {
-            List(characters, id: \.id) { character in
-                NavigationLink(
-                    destination: CharacterDetailView(characterId: character.id!, character: character),
-                    label: {
-                        HStack {
-                            if (isPrenium == true) {
-                                if let image = character.image,
-                                    let url = URL(string: image) {
-                                    KFImage(url)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 50, height: 50)
-                                        .cornerRadius(25)
+            List {
+                ForEach(data.characters, id: \.id) { character in
+                    NavigationLink(
+                        destination: CharacterDetailView(character: character),
+                        label: {
+                            HStack {
+                                if (isPrenium) {
+                                    if let image = character.image,
+                                       let url = URL(string: image) {
+                                        KFImage(url)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 50, height: 50)
+                                            .cornerRadius(25)
+                                    } else {
+                                        RoundedRectangle(cornerRadius: 25)
+                                            .frame(width: 50, height: 50)
+                                            .foregroundColor(.gray)
+                                    }
                                 } else {
-                                    RoundedRectangle(cornerRadius: 25)
-                                    .frame(width: 50, height: 50)
-                                    .foregroundColor(.gray)
+                                    ZStack {
+                                        let letter: String = String(character.name.prefix(1))
+                                        Text(letter)
+                                        Circle()
+                                            .fill(Color.black)
+                                            .frame(width: 50, height: 50)
+                                        Text(letter)
+                                            .font(.title)
+                                            .foregroundColor(.white)
+                                    }
                                 }
-                            } else {
-                                ZStack {
-                                    let letter: String = String(character.name.prefix(1))
-                                    Text(letter)
-                                    Circle()
-                                        .fill(Color.black)
-                                        .frame(width: 50, height: 50)
-                                    Text(letter)
-                                        .font(.title)
-                                        .foregroundColor(.white)
-                                }
+                                Text(character.name)
                             }
-                            Text(character.name)
                         }
-                    }
-                )
+                    )
+                }
+                if data.shouldDisplayNextPage {
+                    nextPageView
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -56,25 +61,22 @@ struct CharactersListView: View {
                     .font(.title)
                 }
             }
-            .onAppear(perform: {Network.shared.apollo.fetch(query: GetCharactersQuery(page: GraphQLNullable<Int>(integerLiteral: 1))) {
-                result in
-                
-                switch result {
-                case.failure(let error):
-                    print(error)
-                case.success(let GraphQLResult):
-                    if let charactersData = GraphQLResult.data?.characters?.results {
-                        DispatchQueue.main.async {
-                            let characters = charactersData.map{ charactersData in
-                                Character(id: (charactersData?.id)!, name: (charactersData?.name)!, image: (charactersData?.image)!, status: (charactersData?.status)!, species: (charactersData?.species)!, type: (charactersData?.type)!, gender: (charactersData?.gender)!)
-                            }
-                            self .characters = characters
-                        }
-                    }
-                }
-            }
-            })
+            .onAppear{data.fetchCharacters()}
         }
+    }
+    
+    private var nextPageView: some View {
+        HStack {
+            Spacer()
+            VStack {
+                ProgressView()
+                Text("Loading next page...")
+            }
+            Spacer()
+        }
+        .onAppear(perform: {
+            data.currentPage += 1
+        })
     }
 }
 

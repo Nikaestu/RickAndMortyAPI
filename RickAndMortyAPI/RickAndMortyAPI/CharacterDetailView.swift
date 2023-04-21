@@ -10,7 +10,6 @@ import Kingfisher
 
 struct CharacterDetailView: View {
     
-    var characterId: String
     @State var character: Character
     @AppStorage("isPrenium") var isPrenium: Bool = false
 
@@ -87,27 +86,12 @@ struct CharacterDetailView: View {
             }
             Spacer()
         }.edgesIgnoringSafeArea(.top)
-        .onAppear(perform: {Network.shared.apollo.fetch(query: GetCharacterQuery(id: characterId)) {
-            result in
-            
-            switch result {
-            case.failure(let error):
-                print(error)
-            case.success(let GraphQLResult):
-                if let character = GraphQLResult.data?.character {
-                    DispatchQueue.main.async {
-                        let character = Character(id: character.id!, name: character.name!, image: character.image!, status: character.status!, species: character.species!, type: character.type!, gender: character.gender!)
-                        self.character = character
-                    }
-                }
-            }
-        }
-        })
+            .onAppear{}
     }
 }
 
 struct CharacterDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterDetailView(characterId: "1", character: Character(id: "1", name: "Rick", image: "Je suis une image", status: "Alive", species: "Human", type: "Type", gender: "Male"))
+        CharacterDetailView(character: Character(id: "1", name: "Rick", image: "Je suis une image", status: "Alive", species: "Human", type: "Type", gender: "Male"))
     }
 }
