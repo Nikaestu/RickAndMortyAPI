@@ -47,7 +47,12 @@ struct CharactersListView: View {
                                             .foregroundColor(.white)
                                     }
                                 }
-                                Text(character.name)
+                                //Règle métier 3 : pour mettre rick et morty en avant, les personnages dont l’espèce est ‘Human’ doivent aussi avoir leur prénom en majuscules
+                                if(character.species == "Human") {
+                                    Text(character.name.uppercased())
+                                } else {
+                                    Text(character.name)
+                                }
                             }
                         }
                     )
