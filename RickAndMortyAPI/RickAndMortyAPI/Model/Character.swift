@@ -9,7 +9,7 @@ import Foundation
 
 class Character {
     
-    var id: String?
+    var id: String
     var name: String
     var image: String
     var status: String

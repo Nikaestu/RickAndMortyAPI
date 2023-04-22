@@ -10,7 +10,7 @@ import Kingfisher
 
 struct CharactersListView: View {
     
-    @StateObject private var data = CharacterService()
+    @StateObject var data = CharacterService()
     @AppStorage("isPrenium") var isPrenium: Bool = false
 
     var body: some View {

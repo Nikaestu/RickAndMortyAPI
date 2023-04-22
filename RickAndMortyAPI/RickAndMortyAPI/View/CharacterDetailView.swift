@@ -14,15 +14,6 @@ struct CharacterDetailView: View {
     @AppStorage("isPrenium") var isPrenium: Bool = false
 
     var body: some View {
-        
-        let characterDetails: [(systemName: String, text: String)] = [
-            ("numbersign", character.id!),
-            ("person", character.name),
-            ("staroflife", character.status),
-            ("curlybraces", character.species),
-            ("figure.mind.and.body", character.gender)
-        ]
-        
         VStack {
             ZStack(alignment: .bottomTrailing) {
                 Image(isPrenium ? "banner" : "banner_noir_blanc")
@@ -76,6 +67,13 @@ struct CharacterDetailView: View {
             Spacer()
             VStack(alignment: .leading) {
                 //Utilisation d'un tableau de tuples afin de simplifier le code
+                let characterDetails: [(systemName: String, text: String)] = [
+                    ("numbersign", character.id),
+                    ("person", character.name),
+                    ("staroflife", character.status),
+                    ("curlybraces", character.species),
+                    ("figure.mind.and.body", character.gender)
+                ]
                 ForEach(characterDetails, id: \.text) { detail in
                     HStack {
                         Image(systemName: detail.systemName)
