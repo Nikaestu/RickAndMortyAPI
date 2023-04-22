@@ -1,6 +1,6 @@
 # RickAndMortyAPI
 
-Rick & Morty
+# Les consignes reçues:
 
 Réalisation d’une application fan de la série rick & morty
 Un écran d'accueil présentant les personnages de la série, scrollable
