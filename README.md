@@ -15,13 +15,21 @@ Dans le but de faire une app pérenne, l’architecture et la qualité de l’ap
 
 # Structure
 
-Avant toute chose, j'ai utilisé ce que je connaissais le mieux ici à savoir une structure en MVC, tu y trouveras un dossier Model, Vue et Service(Controller). L'avantage ici est celui de pouvoir faire tampon avec les données reçues depuis l'API GraphQL en choississant les données que je veux afficher a mon ecran et de ne pas devoir utiliser tout ce qui est renvoyé. Ce qui est un avantage s'il faut changer le GraphQL en autre chose par exemple ;).
+Avant toute chose, j'ai utilisé ce que je connaissais le mieux afin de structurer mon application à savoir une structure en MVC, tu y trouveras un dossier Model, Vue et Service(Controller). L'avantage selon mes connaissances est celui de pouvoir faire tampon avec les données reçues depuis l'API GraphQL en choississant celles que je veux afficher sur ma vue. Ce qui est, pour moi, un avantage s'il faut changer le GraphQL en autre chose: Maintenabilité meilleure je trouve.
 
 # Questionnement
-A l'avant veille de rendre ce projet, une question concernant le système de déployement de l'app en gratuite et payante m'est arrivée. Un appel auprès d'Antoine à été fait pour lui communiquer le fait que j'utilisé un bouton afin de faire le switch mais vraisemblablement il aurait été plus mobile friendly d'utiliser un équivalent de ce qui se fait en web avec webpack notemment. Pour ça je serais partis sur deux dossier au sein de mon projet: l'un FREE et l'autre PERMIUM afin de pouvoir choisir l'unw ou l'autre a l'aide de variable: /freeApp et /paidApp et un :
+A l'avant veille de rendre ce projet, une question concernant le système de déployement de l'app en gratuite et payante à commencer à me trotter dans la tête. Un appel auprès d'Antoine à été fait afin de lui communiquer sur ce que j'ai utilisé: un bouton qui fait le switch d'une version à l'autre mais vraisemblablement il aurait été plus "mobile friendly" d'utiliser un équivalent de ce qui se fait en web avec webpack notamment. 
+
+Ma réflexion sur ce que j'aurais fais (par manque de temps): Deux dossiers (comportants respectivements les différentes versionsd) au sein de mon projet: l'un FREE et l'autre PAID afin de pouvoir choisir l'un ou l'autre a l'aide de variable:
+
 #if FREE
 
 #elseif PAID
 
 #endif
-afin de choisir l'une ou l'autre.
+
+Et j'aurais pu utiliser la fonction de préprocesseur OTHER_SWIFT_FLAGS dans les paramètres de build du projet. Par exemple, j'aurais ajouter -DFREE dans les paramètres de build de la version gratuite et -DPAID dans les paramètres de build de la version payante. J'aurais ensuite ciblé les dossiers avec leurs paramètres de build respesctif.
+
+Ceci reste une idé
+Et j'aurais pu utiliser la fonction de préprocesseur OTHER_SWIFT_FLAGS dans les paramètres de build du projet. Par exemple, j'aurais ajouter -DFREE dans les paramètres de build de la version gratuite et -DPAID dans les paramètres de build de la version payante. J'aurais ensuite ciblé les dossiers avec leurs paramètres de build respectif. Ceci reste une idée autour de laquelle j'espère pouvoir débattre prochainement.
+
