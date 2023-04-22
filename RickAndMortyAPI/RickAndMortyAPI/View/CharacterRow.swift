@@ -30,8 +30,8 @@ struct CharacterRow: View {
                         .foregroundColor(.gray)
                 }
             } else {
+                let letter: String = String(character.name.prefix(1))
                 ZStack {
-                    let letter: String = String(character.name.prefix(1))
                     Text(letter)
                     Circle()
                         .fill(Color.black)

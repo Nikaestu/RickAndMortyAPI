@@ -42,6 +42,7 @@ class CharacterService: ObservableObject {
                         self.characters.append(contentsOf: charactersData)
                     }
                 } else {
+                    //Ce "else" évite la duplication des personnages de la page 1
                     self.characters = GraphQLResult.data?.characters?.results?.filter({ $0?.status != "unknown" }).compactMap{ characterData in
                         Character(id: (characterData?.id)!, name: (characterData?.name)!, image: (characterData?.image)!, status: (characterData?.status)!, species: (characterData?.species)!, type: (characterData?.type)!, gender: (characterData?.gender)!)} ?? []
                 }

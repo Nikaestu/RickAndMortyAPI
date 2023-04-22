@@ -51,8 +51,8 @@ struct CharacterDetailView: View {
                                     .stroke(Color.black, lineWidth: 1)
                             )
                     } else {
+                        let letter: String = String(character.name.prefix(1))
                         ZStack {
-                            let letter: String = String(character.name.prefix(1))
                             Text(letter)
                             Circle()
                                 .fill(Color.black)
@@ -62,7 +62,6 @@ struct CharacterDetailView: View {
                                 .foregroundColor(.white)
                         }
                     }
-                    
                 }
                 .padding(EdgeInsets.init(top: 0, leading: 18, bottom: 0, trailing: 18))
                 .offset(y: 40)
