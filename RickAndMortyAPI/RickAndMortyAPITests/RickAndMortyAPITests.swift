@@ -10,32 +10,10 @@ import XCTest
 
 final class RickAndMortyAPITests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
     // Mes tests
     
-    // Model
+    // Modèle
+    // Valide
     func testCharacterInitialization() {
         let id = "1"
         let name = "Rick Sanchez"
@@ -56,6 +34,7 @@ final class RickAndMortyAPITests: XCTestCase {
         XCTAssertEqual(character.gender, gender)
     }
 
+    // Non valide
     func testInitWithInvalidId() {
         let character = Character(id: "", name: "John Doe", image: "image.png", status: "Alive", species: "Human", type: "", gender: "Male")
 
@@ -96,13 +75,15 @@ final class RickAndMortyAPITests: XCTestCase {
             Character(id: "1", name: "Rick", image: "Je suis une image", status: "Alive", species: "Human", type: "Type", gender: "Male"),
             Character(id: "2", name: "Morty", image: "Je suis une image", status: "Alive", species: "Human", type: "Type", gender: "Male")
         ]
-        
+
         let charactersListView = CharactersListView()
-        charactersListView.data.characters = characters // On injecte la liste de personnages dans CharactersListView
-            
+        var viewChar = charactersListView.data.characters
+
+        viewChar = characters
+        
         // On vérifie que la liste de personnages est bien affichée
         let expectedCharactersCount = 2 // On s'attend à ce que la liste contienne deux personnages
-        let actualCharactersCount = charactersListView.data.characters.count // On récupère le nombre de personnages affichés
+        let actualCharactersCount = viewChar.count // On récupère le nombre de personnages affichés
         XCTAssertEqual(expectedCharactersCount, actualCharactersCount, "La liste de personnages n'a pas été correctement affichée")
     }
 

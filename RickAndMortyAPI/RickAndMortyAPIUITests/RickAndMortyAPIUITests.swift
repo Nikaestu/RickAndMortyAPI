@@ -8,26 +8,34 @@
 import XCTest
 
 final class RickAndMortyAPIUITests: XCTestCase {
+    
+    var app: XCUIApplication!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+        super.setUp()
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        app = XCUIApplication()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        app = nil
+        super.tearDown()
     }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+    
+    func testCharactersListDisplayed() {
+        
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let listCells = app.tables.cells
+            
+        // On vérifie que la liste contient bien au moins un élément
+        XCTAssertTrue(listCells.count > 0)
+            
+        // On sélectionne le premier élément de la liste
+        listCells.element(boundBy: 0).tap()
+            
+        // On vérifie que l'écran de détail s'affiche
+        XCTAssertTrue(app.navigationBars["Détail du personnage"].exists)
     }
 
     func testLaunchPerformance() throws {
