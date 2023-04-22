@@ -55,7 +55,7 @@ struct CharactersListView: View {
                                     let firstName = character.name.components(separatedBy: " ").first!.lowercased()
                                     let lastName = character.name.components(separatedBy: " ").dropFirst().joined(separator: " ").uppercased()
                                     let customName = firstName + " " + lastName
-                                    Text(customName)
+                                    Text(customName)	
                                 }
                             }
                         }

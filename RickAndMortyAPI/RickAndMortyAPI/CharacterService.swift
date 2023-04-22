@@ -10,7 +10,6 @@ import SwiftUI
 class CharacterService: ObservableObject {
     
     @Published var characters: [Character] = []
-    
     public private(set) var totalPage: Int?
 
     public var currentPage = 1 {
@@ -47,7 +46,6 @@ class CharacterService: ObservableObject {
                         Character(id: (characterData?.id)!, name: (characterData?.name)!, image: (characterData?.image)!, status: (characterData?.status)!, species: (characterData?.species)!, type: (characterData?.type)!, gender: (characterData?.gender)!)} ?? []
                 }
                 
-                //Récupère le nombre totale de pages
                 self.totalPage = GraphQLResult.data?.characters?.info?.pages
 
             }
