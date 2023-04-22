@@ -85,7 +85,6 @@ struct CharacterDetailView: View {
             }
             Spacer()
         }.edgesIgnoringSafeArea(.top)
-            .onAppear{}
     }
 }
 
