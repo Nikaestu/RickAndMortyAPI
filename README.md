@@ -17,6 +17,8 @@ Dans le but de faire une app pérenne, l’architecture et la qualité de l’ap
 
 Avant toute chose, j'ai utilisé ce que je connaissais le mieux afin de structurer mon application à savoir une structure en MVC, tu y trouveras un dossier Model, Vue et Service(Controller). L'avantage selon mes connaissances est celui de pouvoir faire tampon avec les données reçues depuis l'API GraphQL en choississant celles que je veux afficher sur ma vue. Ce qui est, pour moi, un avantage s'il faut changer le GraphQL en autre chose: Maintenabilité meilleure je trouve.
 
+Pour info, j'ai également pris connaissance du MVVM mais je préfére partir sur ce que je connais afin de rendre quelque chose qui me ressemble
+
 # Questionnement
 A l'avant veille de rendre ce projet, une question concernant le système de déployement de l'app en gratuite et payante à commencer à me trotter dans la tête. Un appel auprès d'Antoine à été fait afin de lui communiquer sur ce que j'ai utilisé: un bouton qui fait le switch d'une version à l'autre mais vraisemblablement il aurait été plus "mobile friendly" d'utiliser un équivalent de ce qui se fait en web avec webpack notamment. 
 
