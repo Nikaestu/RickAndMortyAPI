@@ -15,29 +15,17 @@ struct AboutView: View {
 
     var body: some View {
         List {
-            if(isPrenium == true){
-                HStack {
-                    Image(systemName: "square.on.square")
-                    Text("Version actuelle: \(prenium)")
-                }
-                Text("Félicitations !")
-                Text("• Charte graphique colorée")
-                Text("• Image des personnages")
-                Button("Version gratuite") {
-                    self.isPrenium = !isPrenium
-                }
-            } else {
-                HStack {
-                    Image(systemName: "square.on.square")
-                    Text("Version actuelle: \(free)")
-                }
-                Text("C'est... OK ?")
-                Text("• Charte graphique Noir/Blanc")
-                Text("• Pas d'image mais les initiales")
-                Button("Version payante") {
-                    self.isPrenium = !isPrenium
-                }
+            HStack {
+                Image(systemName: "square.on.square")
+                Text("Version actuelle: \(isPrenium ? prenium : free)")
             }
+            Text(isPrenium ? "Félicitations !" : "C'est... OK ?")
+            Text(isPrenium ? "• Charte graphique colorée" : "• Charte graphique Noir/Blanc")
+            Text(isPrenium ? "• Image des personnages" : "• Pas d'image mais les initiales")
+            Button(isPrenium ? "Version gratuite" : "Version payante") {
+                self.isPrenium.toggle()
+            }
+
         }
     }
 }
