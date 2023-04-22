@@ -41,16 +41,12 @@ struct CharacterRow: View {
                         .foregroundColor(.white)
                 }
             }
+            //Règle métier 2 : les personnages doivent avoir leur nom affiché en majuscules
             //Règle métier 3 : pour mettre rick et morty en avant, les personnages dont l’espèce est ‘Human’ doivent aussi avoir leur prénom en majuscules
-            if(character.species == "Human") {
-                Text(character.name.uppercased())
-            } else {
-                //Règle métier 2 : les personnages doivent avoir leur nom affiché en majuscules
-                let firstName = character.name.components(separatedBy: " ").first!.lowercased()
-                let lastName = character.name.components(separatedBy: " ").dropFirst().joined(separator: " ").uppercased()
-                let customName = firstName + " " + lastName
-                Text(customName)
-            }
+            let firstName = character.name.components(separatedBy: " ").first!.lowercased()
+            let lastName = character.name.components(separatedBy: " ").dropFirst().joined(separator: " ").uppercased()
+            let customName = character.species == "Human" ? character.name.uppercased() : firstName + " " + lastName
+            Text(customName)
         }
     }
 }
