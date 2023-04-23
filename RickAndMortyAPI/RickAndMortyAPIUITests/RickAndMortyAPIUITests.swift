@@ -8,34 +8,44 @@
 import XCTest
 
 final class RickAndMortyAPIUITests: XCTestCase {
-    
-    var app: XCUIApplication!
 
     override func setUpWithError() throws {
-        super.setUp()
         continueAfterFailure = false
-        app = XCUIApplication()
-    }
-
-    override func tearDownWithError() throws {
-        app = nil
-        super.tearDown()
     }
     
-    func testCharactersListDisplayed() {
-        
+    //Mes tests
+    func testApp() {
+        let app = XCUIApplication()
         app.launch()
         
-        let listCells = app.tables.cells
+        let collectionViewsQuery = app.collectionViews
+        XCTAssertNotNil(collectionViewsQuery)
+        
+        let rRRickSanchezButton = collectionViewsQuery/*@START_MENU_TOKEN@*/.buttons["R, R, RICK SANCHEZ"]/*[[".cells.buttons[\"R, R, RICK SANCHEZ\"]",".buttons[\"R, R, RICK SANCHEZ\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        XCTAssertTrue(rRRickSanchezButton.exists)
+        
+        rRRickSanchezButton.tap()
+    
+        let backButon = app.navigationBars["_TtGC7SwiftUI19UIHosting"].buttons["Back"]
+        XCTAssertTrue(backButon.exists)
             
-        // On vérifie que la liste contient bien au moins un élément
-        XCTAssertTrue(listCells.count > 0)
-            
-        // On sélectionne le premier élément de la liste
-        listCells.element(boundBy: 0).tap()
-            
-        // On vérifie que l'écran de détail s'affiche
-        XCTAssertTrue(app.navigationBars["Détail du personnage"].exists)
+        backButon.tap()
+        
+        let tabBarButonAbout = app.tabBars["Tab Bar"].buttons["A propos"]
+        XCTAssertTrue(tabBarButonAbout.exists)
+        
+        tabBarButonAbout.tap()
+        
+        let versionButton = collectionViewsQuery/*@START_MENU_TOKEN@*/.buttons["Version payante"]/*[[".cells.buttons[\"Version payante\"]",".buttons[\"Version payante\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        XCTAssertTrue(versionButton.exists)
+        
+        versionButton.tap()
+        
+        let tabBarButonCharacters = app.tabBars["Tab Bar"].buttons["Personnages"]
+        XCTAssertTrue(tabBarButonCharacters.exists)
+
+        tabBarButonCharacters.tap()
+                        
     }
 
     func testLaunchPerformance() throws {
