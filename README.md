@@ -29,6 +29,10 @@ Et j'aurais pu utiliser la fonction de préprocesseur OTHER_SWIFT_FLAGS dans les
 Ceci reste une idé
 Et j'aurais pu utiliser la fonction de préprocesseur OTHER_SWIFT_FLAGS dans les paramètres de build du projet. Par exemple, j'aurais ajouter -DFREE dans les paramètres de build de la version gratuite et -DPAID dans les paramètres de build de la version payante. J'aurais ensuite ciblé les dossiers avec leurs paramètres de build respectif. Ceci reste une idée autour de laquelle j'espère pouvoir débattre prochainement.
 
+# Couleurs, style et payettes
+
+Pour cette exercice, et comme il me l'a ete demande en consigne je ne me suis pas focus sur le style en tant que tel, pas d'import de police, pas de couleurs fantaisistes, j'ai voulu faire simple et efficace. Je m'amuserais a ameliorer le design une fois l'evaluation terminee afin de me perfectionner.
+
 # Test
 
 Concernant les tests, j'ai commencé par les tests unitaires couvrant: le modele, le service, la liste et le details des personnages a l'aide de fonctions simples retournant true ou false. Puis j'ai appris car tout nouveau pour moi a me servir des tests UI, j'ai procede a l'enregistrement du test via le bouton record et j'ai pu ensuite adapter le test a ce que je voulais tester comme pour les tests unitaires a l'aide d'AssertTrue/False.
