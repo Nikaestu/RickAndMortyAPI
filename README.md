@@ -36,3 +36,13 @@ Pour cette exercice, et comme il me l'a ete demande en consigne je ne me suis pa
 # Test
 
 Concernant les tests, j'ai commencé par les tests unitaires couvrant: le modele, le service, la liste et le details des personnages a l'aide de fonctions simples retournant true ou false. Puis j'ai appris car tout nouveau pour moi a me servir des tests UI, j'ai procede a l'enregistrement du test via le bouton record et j'ai pu ensuite adapter le test a ce que je voulais tester comme pour les tests unitaires a l'aide d'AssertTrue/False.
+
+# Les difficultes
+
+La seule reelle difficulte que j'ai rencontre a ete celle de la configuration de projet, j'ai commnence reellement a coder le 16 avril, j'ai passe presque 1 semaine a regarde des tutos youtube, des stackeoverflow et des forums mais impossible de mettre la main sur de la configuration qui fonctionne. L'intervention d'un expert aura ete primordiale au deblocage (premier contact tres enrichissant). J'ai egalement passe 2 semaines en amont a me former sur la plateforme Udemy, ou j'y ai valide mon certificat attestant de la reussite de cette formation SwiftUi/iOS16.
+
+# Conclusion
+
+Quel pied ! Apprentissage, difficultes et plaisir auront ete les maitres mots sur ce projet. Repartit a zero n'est jamais simple mais passant du java au swift on ne peut qu'admirait le confort de travail qui s'offre a nous. Ce projet a confirme mon choix de me specialise en swift/swiftui et je remercie Ippon pour cette opportunite de progresser sur ce genre de challenge. En attente de pouvoir apprendre je reste a disposition pour un eventuel entretien afin d'echanger autour de ce projet.
+
+# Lorsqu’il n’y a pas d’ennemi à l’intérieur, les ennemis de l’extérieur ne peuvent pas t’atteindre (proverbe africain)
