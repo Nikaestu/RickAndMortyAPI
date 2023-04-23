@@ -22,13 +22,7 @@ Pour info, j'ai également pris connaissance du MVVM mais je préfére partir su
 # Questionnement
 A l'avant veille de rendre ce projet, une question concernant le système de déployement de l'app en gratuite et payante à commencer à me trotter dans la tête. Un appel auprès d'Antoine à été fait afin de lui communiquer sur ce que j'ai utilisé: un bouton qui fait le switch d'une version à l'autre mais vraisemblablement il aurait été plus "mobile friendly" d'utiliser un équivalent de ce qui se fait en web avec webpack notamment. 
 
-Ma réflexion sur ce que j'aurais fais (par manque de temps): Deux dossiers (comportants respectivements les différentes versionsd) au sein de mon projet: l'un FREE et l'autre PAID afin de pouvoir choisir l'un ou l'autre a l'aide de variable:
-
-#if FREE
-
-#elseif PAID
-
-#endif
+Ma réflexion sur ce que j'aurais fais (par manque de temps): Deux dossiers (comportants respectivements les différentes versionsd) au sein de mon projet: l'un FREE et l'autre PAID afin de pouvoir choisir l'un ou l'autre a l'aide de variable: if FREE / elseif PAID / endif
 
 Et j'aurais pu utiliser la fonction de préprocesseur OTHER_SWIFT_FLAGS dans les paramètres de build du projet. Par exemple, j'aurais ajouter -DFREE dans les paramètres de build de la version gratuite et -DPAID dans les paramètres de build de la version payante. J'aurais ensuite ciblé les dossiers avec leurs paramètres de build respesctif.
 
