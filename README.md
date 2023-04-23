@@ -40,6 +40,6 @@ La seule reelle difficulté que j'ai rencontré a été celle de la configuratio
 
 # Conclusion
 
-Quel pied ! Apprentissage, difficultes et plaisir auront été les maitres môts sur ce projet. Repartir à zéro n'est jamais simple mais passant du java au swift on ne peut qu'admirer le confort de travail qui s'offre a nous. Ce projet a confirmé mon choix de me specialiser en swift/swiftui et je remercie Ippon pour cette opportunité de progresser grâce à ce genre de challenge. En attente de pouvoir apprendre je reste a disposition pour un eventuel call afin d'echanger autour de ce sujet.
+Quel pied ! Apprentissage, difficultes et plaisir auront été les maitres môts sur ce projet. Repartir à zéro n'est jamais simple mais passant du java au swift on ne peut qu'admirer le confort de travail qui s'offre a nous. Ce projet a confirmé mon choix de me specialiser en swift/swiftui et je remercie Ippon mais plus particulierement Antoine pour cette opportunité de progresser grâce à ce genre de challenge. En attente de pouvoir apprendre je reste a disposition pour un eventuel call afin d'echanger autour de ce sujet.
 
 # Lorsqu’il n’y a pas d’ennemi à l’intérieur, les ennemis de l’extérieur ne peuvent pas t’atteindre (proverbe africain)
